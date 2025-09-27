@@ -25,17 +25,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          inputDecorationTheme: InputDecorationTheme(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade300),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade300),
-            ),
-          ),
-        ),
+        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         title: 'Shopping App',
         initialRoute: RoutesName.home,
         onGenerateRoute: RouteGenerator.generateRoute,
