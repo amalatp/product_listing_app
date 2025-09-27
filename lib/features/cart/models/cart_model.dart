@@ -1,29 +1,31 @@
-import 'dart:convert';
 import 'package:product_listing_app/features/home/models/pduct_model.dart';
 
 class CartItem {
   final ProductModel product;
   final int quantity;
 
-  CartItem({required this.product, this.quantity = 1});
+  CartItem({required this.product, required this.quantity});
 
-  Map<String, dynamic> toJson() {
-    return {'product': product.toJson(), 'quantity': quantity};
+  Map<String, dynamic> toMap() {
+    return {
+      'id': product.id,
+      'productId': product.id,
+      'title': product.title,
+      'price': product.price,
+      'image': product.image,
+      'quantity': quantity,
+    };
   }
 
-  factory CartItem.fromJson(Map<String, dynamic> json) {
+  factory CartItem.fromMap(Map<String, dynamic> map) {
     return CartItem(
-      product: ProductModel.fromJson(json['product']),
-      quantity: json['quantity'] ?? 1,
+      product: ProductModel(
+        id: map['productId'],
+        title: map['title'],
+        price: map['price'],
+        image: map['image'],
+      ),
+      quantity: map['quantity'],
     );
   }
-
-  static String encode(List<CartItem> items) => jsonEncode(
-    items.map<Map<String, dynamic>>((item) => item.toJson()).toList(),
-  );
-
-  static List<CartItem> decode(String items) =>
-      (jsonDecode(items) as List<dynamic>)
-          .map<CartItem>((item) => CartItem.fromJson(item))
-          .toList();
 }

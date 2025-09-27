@@ -54,6 +54,7 @@ class TotalAmountAndCheckoutButton extends StatelessWidget {
             },
             buttonText: 'Checkout',
           ),
+          const SizedBox(height: 12),
         ],
       ),
     );

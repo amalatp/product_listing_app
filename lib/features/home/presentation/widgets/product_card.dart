@@ -94,8 +94,7 @@ class ProductCard extends StatelessWidget {
                 imageUrl: product.image!.toString(),
                 fit: BoxFit.cover,
                 width: double.infinity,
-                placeholder: (context, url) =>
-                    const Center(child: Icon(Icons.image_not_supported)),
+                placeholder: (context, url) => const SizedBox(),
                 errorWidget: (context, url, error) =>
                     const Icon(Icons.image_not_supported),
               ),
